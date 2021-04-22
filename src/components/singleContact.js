@@ -1,27 +1,12 @@
-import react from 'react';
+import React from 'react'
 
-
-
-const Preson=({ avatar,first_name,last_name,email })=>{
-
+function SingleContact(props) {
+    console.log(props.location.aboutProps);
     return(
-        <div class="ui card">
-            <div class="image">
-                <img src={avatar}/>
-            </div>
-            <div class="content">
-                <a class="header">{first_name} {last_name}</a>
-                <div class="description">
-                    {email}
-                </div>
-            </div>
-            <div class="extra content">
-                 <a>
-                    <i class="user icon"></i>
-                        Follow
-                </a>
-            </div>
+        <div className = "single-contact">
+            
         </div>
-    );
+    )
 }
-export default Preson;
+
+export default SingleContact;
