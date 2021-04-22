@@ -1,20 +1,36 @@
 import react from 'react';
-import { Card, Image } from 'semantic-ui-react'
-const Contact=({ name,email,img, })=>{
-    return(
+import { Link } from 'react-router-dom';
+import { Card, Image } from 'semantic-ui-react';
+function Contact({ id, email, first_name, last_name, image }) {
+    return (
         <Card>
             <Card.Content>
                 <Image
                 floated='right'
                 size='mini'
-                src={img}
+                src={image}
                 />
-                <Card.Header>{name}</Card.Header>
+                <Card.Header
+                     as = {Link}
+                     to = {{
+                         pathname : `/singlecontact/${first_name}`,
+                         aboutProps : {
+                             id : id, 
+                             email : email,
+                             first_name : first_name,
+                             last_name : last_name,
+                             image : image
+                         }
+                     }}
+                >
+                    {first_name} {last_name}
+                </Card.Header>
                 <Card.Description>
-                 <strong>{email}</strong>
+                {email}
                 </Card.Description>
             </Card.Content>
         </Card>
-    );
+    )
 }
-export default Contact;
+
+export default Contact
